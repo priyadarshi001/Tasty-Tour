@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Contact from "./pages/Contact"
 import About from "./pages/About";
 import Error from "./pages/Error";
+import Profile from "./components/Profile";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 
@@ -30,6 +31,12 @@ export const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        children: [
+          {
+            path: "profile", // don't write as "/profile" or "/about/profile"
+            element: <Profile />, // outlet needs to be created in parent--> About.js
+          },
+        ],
       },
       {
         path: "/contact",
@@ -41,8 +48,8 @@ export const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurant/:id",
-        element: <RestaurantMenu />
-      }
+        element: <RestaurantMenu />,
+      },
     ],
   },
 ]);

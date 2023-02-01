@@ -4,3 +4,19 @@
         ~ 2nd stage go to index.js, then render <RouterProvider /> with prop router.
       ~~ to keep the navbar & footer intact while changing everything--> we use "Outlet" which contains all the children in App.js
         ~ Outlet is like a placeholder where our component
+
+###***Optimization
+
+
+
+
+
+
+
+
+
+
+### Challenges faced:
+      ~~ Integrating API in front-end requires good understanding of RESTful web services
+      ~~ Routing--> especially understanding the newer version
+      ~~ Debugging code--> e.g., a part of Material UI did not downloaded; newer version of Routing created problem (where to put <RouterProvider />); Implementing search functionality; Reading JSON data (working with conditional rendering)
