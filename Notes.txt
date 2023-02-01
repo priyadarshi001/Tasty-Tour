@@ -1,0 +1,6 @@
+### new version of react-router-dom:
+      ~~ 2 stages: 
+        ~ 1st create configuration using createBrowserRouter to define where to go.
+        ~ 2nd stage go to index.js, then render <RouterProvider /> with prop router.
+      ~~ to keep the navbar & footer intact while changing everything--> we use "Outlet" which contains all the children in App.js
+        ~ Outlet is like a placeholder where our component
