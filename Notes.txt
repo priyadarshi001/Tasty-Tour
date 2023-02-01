@@ -1,3 +1,7 @@
+### 3rd party libraries used:
+      ~~ react-router-dom
+      ~~ formik
+
 ### new version of react-router-dom:
       ~~ 2 stages: 
         ~ 1st create configuration using createBrowserRouter to define where to go.
