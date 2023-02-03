@@ -1,2 +1,2 @@
-# Tasty-Tour
+# Yum-Yard
 Food Ordering App
