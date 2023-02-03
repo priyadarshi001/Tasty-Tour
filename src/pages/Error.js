@@ -10,7 +10,7 @@ export default function Error(){
  return (
    <>
      <h1>Oops!!!</h1>
-     <h2>We can't seem to find page you are looking for</h2>
+     <h2>We can't seem to find page you are looking for. Please refresh</h2>
      <h3>{status + ": " + statusText}</h3>
    </>
  );

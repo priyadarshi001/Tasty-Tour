@@ -1,3 +1,5 @@
+### Pun intended--> React does black magic behind the scenes.....
+
 ### 3rd party libraries used:
       ~~ react-router-dom
       ~~ formik
@@ -9,7 +11,35 @@
       ~~ to keep the navbar & footer intact while changing everything--> we use "Outlet" which contains all the children in App.js
         ~ Outlet is like a placeholder where our component
 
-###***Optimization
+### custom hooks:
+      ~~ useRestaurant--> to return restaurant data
+      ~~ useOnline--> checks whether use is online or not.
+
+## Pros & Cons of using CSS library:
+      ~~ Pros: Easy, Fast, Reusability, Consistency throughout the page & among developers working on same project, Auto include responsiveness
+      ~~ Cons: Increased size of bundle; Losing a lot of control over UI
+
+## Tailwind css:
+      ~~ pros:
+            ~ like writing in-line css--> Css on the go along with HTML [no need to toggle between JS & css file]
+            ~ reusability through in-built class
+            ~ less bundle size
+            ~ Flexible--> more customization
+      ~ cons: Too much classes
+
+###***Optimization:
+      ~~ Clear eventListener [see useOnline.js]--> eventListener will be there if we go from body to another page. [not there if we just toggle between online/offline]
+      ~~ CODE SPLITTING/ CHUNKING/ DYNAMIC BUNDLING/ LAZY LOADING/ ON DEMAND LOADING: 
+            ~ Bundlers put all JS files into one JS file and hence loading entire app at once. But as app/files grows, bundle also grow (rapidly if 3rd party libraries are included)==> Longer loading time====> Need of splitting etc.
+            ~ It is the process of splitting code into several bundles which can dynamically loaded when needed.
+            ~ It calls for lazy loading and loads only those that are needed by user==> Improving performance.
+                  ~ lazy() function calls "dynamic import()" which then returns a "Promise" with React component.
+                  ~ lazy component is then rendered inside a "Suspense" component which allow us show some fallback content while lazy component loads like Shimmer UI or Loading spinner.
+            ~ E.g., In Amazon website if we're at homepage we don't need to load content of Fashion tab or Kitchen tab.
+            ~ see ex in App.js (for Instamart)--> Go to network tab and refresh the home page - there is no JS file of Instamart, but when we go to instamart page a new JS page for instamart loads and stays there.
+            ~ Usually don't required in small sized app.
+            ~ DON'T LAZY LOAD INSIDE A COMPONENT--> Do it before function declaration begins otherwise if inside it will do lazyLoading in every render
+      ~~ if a website is image heavy--> then keep those image over CDN, compress the image, caching image, lazy loading.
 
 
 

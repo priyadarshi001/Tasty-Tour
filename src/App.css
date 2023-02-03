@@ -7,7 +7,6 @@ body{
 .header{
   display: flex;
   justify-content: space-between;
-  /* margin: 20px; */
   background-color: #f1e9fa;
   margin-bottom: 0.5em;
 }
@@ -26,6 +25,14 @@ body{
   padding: 5px;
 }
 
+.restaurant-list{
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .card{
   color: black;
   width: 240px;
@@ -37,30 +44,21 @@ body{
   margin: 20px;
 }
 
-.card * {
-  margin: 0;
-}
 
 .card h5{
   font-weight: lighter;
-}
-
-.card > img{
-  width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
 .card-image{
   overflow: hidden;
 }
 
-.restaurant-list{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+.card-image > img{
+  max-width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
+
 
 .search-container{
   display: flex;

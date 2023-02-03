@@ -2,12 +2,8 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
-function filterData(searchText, restaurants) {
-  return restaurants.filter((restaurant) =>
-    restaurant?.data?.name?.toLowerCase().includes(searchText?.toLowerCase())
-  );
-}
+import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [searchText, setSearchText] = useState(""); // * to create a variable we use state
@@ -29,32 +25,35 @@ const Body = () => {
     setFilteredRestaurants(jsonData?.data?.cards[2]?.data?.data?.cards);
   }
 
-  // if(filteredRestaurants?.length === 0) return <h2> No Restaurant matched!! </h2>
+  const isOnline = useOnline();
+  if(!isOnline){
+    return <h2>🔴 Offline, please check your internet connection</h2>
+  }
 
   return allRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className=" p-2 bg-gray-100 justify-center">
         <input
           type="text"
-          className="search-input"
-          placeholder="search-food"
+          className="h-8 p-4 focus-within:bg-yellow-50"
+          placeholder="search-restaurant"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
 
         <button
-          className="search-btn"
+          className="p-2 m-2 bg-yellow-400 hover:bg-yellow-600 text-yellow-50 font-bold rounded-md"
           onClick={() => {
             const data = filterData(searchText, allRestaurants);
             setFilteredRestaurants(data);
           }}
         >
-          Search
+          Order Now
         </button>
       </div>
-      <div className="restaurant-list">
+      <div className="flex flex-wrap items-stretch">
         {/** not using --> restaurantList.map()=>  --> as implementing search */}
         {filteredRestaurants.map((restaurant) => {
           return (
