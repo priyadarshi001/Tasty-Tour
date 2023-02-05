@@ -30,7 +30,7 @@ const Body = () => {
     return <h2>🔴 Offline, please check your internet connection</h2>
   }
 
-  return allRestaurants?.length === 0 ? (
+  return allRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <>
