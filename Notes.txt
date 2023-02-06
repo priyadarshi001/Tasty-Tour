@@ -40,6 +40,7 @@
             ~ Usually don't required in small sized app.
             ~ DON'T LAZY LOAD INSIDE A COMPONENT--> Do it before function declaration begins otherwise if inside it will do lazyLoading in every render
       ~~ if a website is image heavy--> then keep those image over CDN, compress the image, caching image, lazy loading.
+      ~~ Data Management--> Instead of prop drilling use Context/Redux
 
 
 
@@ -54,3 +55,15 @@
       ~~ Integrating API in front-end requires good understanding of RESTful web services
       ~~ Routing--> especially understanding the newer version
       ~~ Debugging code--> e.g., a part of Material UI did not downloaded; newer version of Routing created problem (where to put <RouterProvider />); Implementing search functionality; Reading JSON data (working with conditional rendering)
+
+### Learnings:
+      ~ Lec 13:
+            ~~ Prop drilling
+            ~~ Accordion [see Material UI webpage]
+            ~~ Lifting the State Up
+            ~~ Devtools--> 
+                  $ Component--> show there
+                  $ Profiler--> records whole user journey of webpage==> shows how much time required to a task==> Help in analyzing performance of react.
+                        ~ e.g., for Shimmer it shows rendered at 2.2s for 9.7ms ==> using an external library (for every small thing) would take longer time
+                        ~ e.g., Suspense (from About page) took longer time because of lazy loading
+            ~~ useContext: see in Header.js.

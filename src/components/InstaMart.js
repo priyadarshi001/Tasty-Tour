@@ -1,3 +1,6 @@
+//! This works partially--> We can only open a text field but cannot close it using its own button.
+
+
 import { useState } from "react";
 
 const Section1 = ({ title, desc }) => {
@@ -51,11 +54,7 @@ const Section2 = ({ title2, desc2, isVisible2, setIsVisible2 }) => {
 };
 
 const InstaMart = () => {
-   const [sectionConfig, setSectionConfig] = useState({
-      showAbout: false,
-      showTeam: false,
-      showCareers: false,
-   })
+   const [visibleSection, setVisibleSection] = useState(""); // by default no one is open
   return (
     <>
       <h1 className="text-bold text-3xl text-center">Instamart</h1>
@@ -63,38 +62,20 @@ const InstaMart = () => {
       <Section2
         title2="About Instamart"
         desc2="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)"
-        isVisible2={sectionConfig.showAbout}
-        setIsVisible2={() =>
-          setSectionConfig({
-            showAbout: true,
-            showTeam: false,
-            showCareers: false,
-          })
-        }
+        isVisible2={visibleSection === "about"}
+        setIsVisible2={() => setVisibleSection("about")} // writing only this line will allow only one text to be visible. But we cannot close the open text using its button
       />
       <Section2
-        title2="About Instamart"
+        title2="Team Instamart"
         desc2="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)"
-        isVisible2={sectionConfig.showTeam}
-        setIsVisible2={() =>
-          setSectionConfig({
-            showAbout: false,
-            showTeam: true,
-            showCareers: false,
-          })
-        }
+        isVisible2={visibleSection === "team"}
+        setIsVisible2={() => setVisibleSection("team")}
       />
       <Section2
-        title2="About Instamart"
+        title2="Career Instamart"
         desc2="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)"
-        isVisible2={sectionConfig.showCareers}
-        setIsVisible2={() =>
-          setSectionConfig({
-            showAbout: false,
-            showTeam: false,
-            showCareers: true,
-          })
-        }
+        isVisible2={visibleSection === "career"}
+        setIsVisible2={() => setVisibleSection("career")}
       />
 
       <h2 className="text-2xl mt-12 border-t-4"> Basic Accordion</h2>
@@ -120,3 +101,5 @@ export default InstaMart;
          // each section maintains its own state/prop
       // controlled accordion--> if one text is show rest text should hide==> Transfer the control of state/prop to parent ===> LIFTING THE STATE UP
             // pass props to children and define those props in parent. useState of parent will have to take same nos. of variable as its children has.===> Issue: what if we've 20 children then code will just repeat. ===> Use ID/name
+              // isVisible takes boolean value==> for each section use id/name
+              // then set
